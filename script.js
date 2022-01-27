@@ -73,7 +73,7 @@ function Firework( sx, sy, tx, ty ) {
 	this.acceleration = 1.05;
 	this.brightness = random( 50, 70 );
 	// circle target indicator radius
-	this.targetRadius = 1;
+	this.targetRadius = 0;
 }
 
 // update firework
@@ -84,10 +84,10 @@ Firework.prototype.update = function( index ) {
 	this.coordinates.unshift( [ this.x, this.y ] );
 	
 	// cycle the circle target indicator radius
-	if( this.targetRadius < 8 ) {
-		this.targetRadius += 0.3;
+	if( this.targetRadius < 0 ) {
+		this.targetRadius += 0;
 	} else {
-		this.targetRadius = 1;
+		this.targetRadius = 0;
 	}
 	
 	// speed up the firework
